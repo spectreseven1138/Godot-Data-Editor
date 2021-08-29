@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/data-editor/value_types/array.gd" type="Script" id=1]
+[ext_resource path="res://addons/data-editor/icons/Add.png" type="Texture" id=2]
+
+[node name="Array" type="VBoxContainer"]
+margin_right = 142.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreviewButton" type="Button" parent="."]
+margin_right = 142.0
+margin_bottom = 20.0
+focus_mode = 0
+
+[node name="Spacer" type="Control" parent="."]
+margin_top = 24.0
+margin_right = 142.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 0, 10 )
+
+[node name="ExpandedView" type="VBoxContainer" parent="."]
+margin_top = 38.0
+margin_right = 142.0
+margin_bottom = 38.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddButton" type="Button" parent="."]
+margin_top = 42.0
+margin_right = 142.0
+margin_bottom = 62.0
+focus_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="AddButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer2" type="Control" parent="."]
+margin_top = 66.0
+margin_right = 142.0
+margin_bottom = 76.0
+rect_min_size = Vector2( 0, 10 )
+
+[connection signal="pressed" from="PreviewButton" to="." method="_on_PreviewButton_pressed"]
+[connection signal="pressed" from="AddButton" to="." method="_on_AddButton_pressed"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/data-editor/value_types/string.gd" type="Script" id=1]
+
+[node name="TextEdit" type="TextEdit"]
+margin_right = 340.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 0, 23 )
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/line_spacing = 5
+text = "a  hj g ghg hj "
+show_line_numbers = true
+draw_tabs = true
+highlight_all_occurrences = true
+smooth_scrolling = true
+wrap_enabled = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="focus_exited" from="." to="." method="_on_TextEdit_focus_exited"]
+[connection signal="text_changed" from="." to="." method="_on_TextEdit_text_changed"]

@@ -1,0 +1,297 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://addons/data-editor/main_panel.gd" type="Script" id=1]
+[ext_resource path="res://addons/data-editor/icons/Save.png" type="Texture" id=2]
+[ext_resource path="res://addons/data-editor/icons/Delete.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_top = 4.0
+bg_color = Color( 0.14902, 0.172549, 0.231373, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_right = 4.0
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 11.0
+content_margin_right = 11.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.2, 0.227451, 0.309804, 1 )
+
+[node name="MainPanel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HBoxContainer"]
+margin_right = 250.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 250, 0 )
+size_flags_vertical = 3
+
+[node name="Files" type="PanelContainer" parent="HBoxContainer/VSplitContainer"]
+margin_right = 250.0
+margin_bottom = 534.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VSplitContainer/Files"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 243.0
+margin_bottom = 527.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VSplitContainer/Files/VBoxContainer"]
+margin_right = 236.0
+margin_bottom = 477.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VSplitContainer/Files/VBoxContainer/ScrollContainer"]
+margin_right = 236.0
+margin_bottom = 477.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tree" type="Tree" parent="HBoxContainer/VSplitContainer/Files/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_right = 236.0
+margin_bottom = 477.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+hide_root = true
+
+[node name="SelectedFileLabel" type="Label" parent="HBoxContainer/VSplitContainer/Files/VBoxContainer"]
+margin_top = 481.0
+margin_right = 236.0
+margin_bottom = 495.0
+text = "Bruh Momentum"
+align = 1
+
+[node name="Buttons" type="HBoxContainer" parent="HBoxContainer/VSplitContainer/Files/VBoxContainer"]
+margin_top = 499.0
+margin_right = 236.0
+margin_bottom = 520.0
+custom_constants/separation = 17
+alignment = 1
+
+[node name="Delete" type="Button" parent="HBoxContainer/VSplitContainer/Files/VBoxContainer/Buttons"]
+margin_left = 10.0
+margin_right = 86.0
+margin_bottom = 21.0
+focus_mode = 0
+text = " Delete"
+icon = ExtResource( 3 )
+
+[node name="Rename" type="Button" parent="HBoxContainer/VSplitContainer/Files/VBoxContainer/Buttons"]
+margin_left = 103.0
+margin_right = 167.0
+margin_bottom = 21.0
+focus_mode = 0
+text = "Rename"
+
+[node name="Load" type="Button" parent="HBoxContainer/VSplitContainer/Files/VBoxContainer/Buttons"]
+margin_left = 184.0
+margin_right = 226.0
+margin_bottom = 21.0
+focus_mode = 0
+text = "Load"
+
+[node name="Data" type="PanelContainer" parent="HBoxContainer/VSplitContainer"]
+margin_top = 546.0
+margin_right = 250.0
+margin_bottom = 1080.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VSplitContainer/Data"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 243.0
+margin_bottom = 527.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VSplitContainer/Data/VBoxContainer"]
+margin_right = 236.0
+margin_bottom = 492.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VSplitContainer/Data/VBoxContainer/ScrollContainer"]
+margin_right = 236.0
+margin_bottom = 492.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Tree" type="Tree" parent="HBoxContainer/VSplitContainer/Data/VBoxContainer/ScrollContainer/VBoxContainer"]
+margin_right = 236.0
+margin_bottom = 492.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+allow_rmb_select = true
+hide_root = true
+
+[node name="Buttons" type="HBoxContainer" parent="HBoxContainer/VSplitContainer/Data/VBoxContainer"]
+margin_top = 496.0
+margin_right = 236.0
+margin_bottom = 520.0
+custom_constants/separation = 18
+alignment = 1
+
+[node name="PrettyFormatting" type="CheckBox" parent="HBoxContainer/VSplitContainer/Data/VBoxContainer/Buttons"]
+margin_left = 10.0
+margin_right = 150.0
+margin_bottom = 24.0
+focus_mode = 0
+custom_constants/hseparation = 8
+text = "Pretty formatting"
+align = 1
+
+[node name="Save" type="Button" parent="HBoxContainer/VSplitContainer/Data/VBoxContainer/Buttons"]
+margin_left = 168.0
+margin_right = 225.0
+margin_bottom = 24.0
+focus_mode = 0
+text = " Save"
+icon = ExtResource( 2 )
+
+[node name="Values" type="PanelContainer" parent="HBoxContainer"]
+margin_left = 262.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Values"]
+margin_top = 4.0
+margin_right = 1658.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/Values/VBoxContainer"]
+margin_right = 1658.0
+margin_bottom = 1044.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 2 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Values/VBoxContainer/PanelContainer2"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 1654.0
+margin_bottom = 1043.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Values/VBoxContainer/PanelContainer2/ScrollContainer"]
+margin_right = 1653.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BottomBar" type="PanelContainer" parent="HBoxContainer/Values/VBoxContainer"]
+margin_top = 1048.0
+margin_right = 1658.0
+margin_bottom = 1076.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="Right" type="HBoxContainer" parent="HBoxContainer/Values/VBoxContainer/BottomBar"]
+margin_left = 1482.0
+margin_top = 4.0
+margin_right = 1647.0
+margin_bottom = 24.0
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="ExpandButton" type="Button" parent="HBoxContainer/Values/VBoxContainer/BottomBar/Right"]
+margin_right = 76.0
+margin_bottom = 20.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Expand all"
+
+[node name="CollapseButton" type="Button" parent="HBoxContainer/Values/VBoxContainer/BottomBar/Right"]
+margin_left = 80.0
+margin_right = 165.0
+margin_bottom = 20.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Collapse all"
+
+[node name="Left" type="HBoxContainer" parent="HBoxContainer/Values/VBoxContainer/BottomBar"]
+margin_left = 11.0
+margin_top = 4.0
+margin_right = 187.0
+margin_bottom = 24.0
+size_flags_horizontal = 0
+
+[node name="IndicatorLabel" type="Button" parent="HBoxContainer/Values/VBoxContainer/BottomBar/Left"]
+modulate = Color( 1, 0, 0, 1 )
+margin_right = 176.0
+margin_bottom = 20.0
+focus_mode = 0
+custom_colors/font_color = Color( 0.847059, 0.847059, 0.847059, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+text = "Startup file does not exist"
+flat = true
+
+[node name="NewFileDialog" type="ConfirmationDialog" parent="."]
+margin_right = 200.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 200, 0 )
+window_title = "Create new"
+dialog_hide_on_ok = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Alert" type="AcceptDialog" parent="."]
+margin_right = 83.0
+margin_bottom = 58.0
+
+[node name="TypeSelectMenu" type="PopupMenu" parent="."]
+margin_right = 20.0
+margin_bottom = 20.0
+popup_exclusive = true
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+margin_right = 200.0
+margin_bottom = 70.0
+popup_exclusive = true
+
+[connection signal="button_pressed" from="HBoxContainer/VSplitContainer/Files/VBoxContainer/ScrollContainer/VBoxContainer/Tree" to="." method="_on_Tree_button_pressed"]
+[connection signal="item_edited" from="HBoxContainer/VSplitContainer/Files/VBoxContainer/ScrollContainer/VBoxContainer/Tree" to="." method="_on_Tree_item_edited"]
+[connection signal="pressed" from="HBoxContainer/VSplitContainer/Files/VBoxContainer/Buttons/Delete" to="." method="_on_Delete_pressed"]
+[connection signal="pressed" from="HBoxContainer/VSplitContainer/Files/VBoxContainer/Buttons/Rename" to="." method="_on_Rename_pressed"]
+[connection signal="pressed" from="HBoxContainer/VSplitContainer/Files/VBoxContainer/Buttons/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="HBoxContainer/VSplitContainer/Data/VBoxContainer/Buttons/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="HBoxContainer/Values/VBoxContainer/BottomBar/Right/ExpandButton" to="." method="_on_ExpandButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/Values/VBoxContainer/BottomBar/Right/CollapseButton" to="." method="_on_CollapseButton_pressed"]
+[connection signal="pressed" from="HBoxContainer/Values/VBoxContainer/BottomBar/Left/IndicatorLabel" to="." method="_on_IndicatorLabel_pressed"]
+[connection signal="custom_action" from="NewFileDialog" to="." method="_on_NewFileDialog_custom_action"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
